@@ -2,8 +2,8 @@
 	<h2>今天菜單</h2>
 	<p>按圖可以放大看</p>
 	<ul class="dbd_list">
-		<li><a href="img/b/<?php echo $dbd->b_current ?>.jpg" rel="lightbox"><img src="img/b/<?php echo $dbd->b_current ?>.jpg"></a></li>
-		<li><a href="img/d/<?php echo $dbd->d_current ?>.jpg" rel="lightbox"><img src="img/d/<?php echo $dbd->d_current ?>.jpg"></a></li>	
+		<li><a href="img/b/<?=$dbd->b_current?>.jpg" rel="lightbox"><img src="img/b/<?=$dbd->b_current?>.jpg"></a></li>
+		<li><a href="img/d/<?=$dbd->d_current?>.jpg" rel="lightbox"><img src="img/d/<?=$dbd->d_current?>.jpg"></a></li>	
 	</ul>
 </div>
 
@@ -53,27 +53,27 @@
 				}
 	?>
 	<tr>
-		<td><?php echo $row["dbd_name"]; ?></td>
+		<td><?=$row["dbd_name"]?></td>
 		<?php 
 			if($dbd->dd_option){
 				$dr_row = $dbd->dr_load($db,$row["dbd_id"]);
 		 ?>
 		<td>
-			<input type="checkbox" name="dr_done[<?php echo $key; ?>]" value="1" <?php echo (!empty($dr_row["dr_done"]))?"checked":"" ?>> 已收費<br />
-			<input type="text" name="dr_over[<?php echo $key; ?>]" value="<?php echo $dr_row["dr_over"]; ?>" style="width: 50px;"> 需找錢
-			<input type="hidden" name="dbd_id[<?php echo $key; ?>]" value="<?php echo $row["dbd_id"]; ?>">
+			<input type="checkbox" name="dr_done[<?=$key?>]" value="1" <?=(!empty($dr_row["dr_done"]))?"checked":"" ?>> 已收費<br />
+			<input type="text" name="dr_over[<?=$key?>]" value="<?=$dr_row["dr_over"]?>" style="width: 50px;"> 需找錢
+			<input type="hidden" name="dbd_id[<?=$key?>]" value="<?=$row["dbd_id"]?>">
 		</td>
 		<?php } ?>
-		<td><?php echo $row["dbd_price"]; ?></td>
-		<!--<td><?php echo ($row["dbd_type"] == 1)?"便當":"飲料"; ?></td>-->
-		<td><?php echo $row["dbd_content"]; ?></td>
-		<td><?php echo $row["dbd_info"]; ?></td>
+		<td><?=$row["dbd_price"]?></td>
+		<!--<td><?=($row["dbd_type"] == 1)?"便當":"飲料"?></td>-->
+		<td><?=$row["dbd_content"]?></td>
+		<td><?=$row["dbd_info"]?></td>
 	</tr>
 	<?php 
 			}
 		}
 	?>
-	<tr><td colspan="<?php echo $colspan; ?>">&nbsp;</td></tr>
+	<tr><td colspan="<?=$colspan?>">&nbsp;</td></tr>
 	<tr>
 		<?php if($dbd->dd_option){ ?>
 		<th>
@@ -82,9 +82,9 @@
 		</th>
 		<?php } ?>
 		<th colspan="5" align="right">
-			便當小計 : <?php echo $dbd->type_value[1]; ?><span class="break"> | </span>
-			飲料小計 : <?php echo $dbd->type_value[2]; ?><span class="break"> | </span>
-			總價 : <?php echo number_format($dbd->all_value); ?><span class="break"> </span>
+			便當小計 : <?=$dbd->type_value[1]?><span class="break"> | </span>
+			飲料小計 : <?=$dbd->type_value[2]?><span class="break"> | </span>
+			總價 : <?=number_format($dbd->all_value)?><span class="break"> </span>
 		</th>
 	</tr>
 	
@@ -105,7 +105,7 @@
 <table>
 	<tr>
 		<th>你是誰?</th>
-		<th><input type="text" name="dbd_name" value="<?php echo $dbd->mod_name; ?>"></th>
+		<th><input type="text" name="dbd_name" value="<?=$dbd->mod_name ?>"></th>
 		<th></th>
 		<th></th>
 	</tr>
@@ -117,22 +117,22 @@
 	</tr>
 	<tr>
 		<th>便當</th>
-		<th><input type="text" name="dbd[1][content]" value="<?php echo $dbd->mod[1]["dbd_content"]; ?>"></th>
-		<th><input type="text" name="dbd[1][price]" value="<?php echo $dbd->mod[1]["dbd_price"]; ?>"></th>
-		<th><input type="text" name="dbd[1][info]" value="<?php echo $dbd->mod[1]["dbd_info"]; ?>"></th>
+		<th><input type="text" name="dbd[1][content]" value="<?=$dbd->mod[1]["dbd_content"] ?>"></th>
+		<th><input type="text" name="dbd[1][price]" value="<?=$dbd->mod[1]["dbd_price"] ?>"></th>
+		<th><input type="text" name="dbd[1][info]" value="<?=$dbd->mod[1]["dbd_info"] ?>"></th>
 	</tr>
 	<tr>
 		<th>飲料</th>
-		<th><input type="text" name="dbd[2][content]" value="<?php echo $dbd->mod[2]["dbd_content"]; ?>"></th>
-		<th><input type="text" name="dbd[2][price]" value="<?php echo $dbd->mod[2]["dbd_price"]; ?>"></th>
-		<th><input type="text" name="dbd[2][info]" value="<?php echo $dbd->mod[2]["dbd_info"]; ?>"></th>
+		<th><input type="text" name="dbd[2][content]" value="<?=$dbd->mod[2]["dbd_content"] ?>"></th>
+		<th><input type="text" name="dbd[2][price]" value="<?=$dbd->mod[2]["dbd_price"] ?>"></th>
+		<th><input type="text" name="dbd[2][info]" value="<?=$dbd->mod[2]["dbd_info"] ?>"></th>
 	</tr>
 </table>
 
 <input type="submit" value="寫好了~~! 記起來~" >
 
-<input type="hidden" name="dbd[1][id]" value="<?php echo $dbd->mod[1]["dbd_id"]; ?>">
-<input type="hidden" name="dbd[2][id]" value="<?php echo $dbd->mod[2]["dbd_id"]; ?>">
+<input type="hidden" name="dbd[1][id]" value="<?=$dbd->mod[1]["dbd_id"] ?>">
+<input type="hidden" name="dbd[2][id]" value="<?=$dbd->mod[2]["dbd_id"] ?>">
 
 <input type="hidden" name="callback" value="1">
 </form>
