@@ -9,7 +9,7 @@
 					echo "<li>可以不要再太師傅了嗎??</li>";
 				}else{
 		 ?>
-		<li><input type="radio" name="b" value="<? echo $b_num ?>"><a href="img/b/<? echo $b_num ?>.jpg" rel="lightbox"><img src="img/b/<? echo $b_num ?>.jpg"></a></li>
+		<li><input type="radio" name="b" value="<?=$b_num?>"><a href="img/b/<?=$b_num?>.jpg" rel="lightbox"><img src="img/b/<?=$b_num?>.jpg"></a></li>
 		<?php
 				}
 			}
@@ -23,7 +23,7 @@
 		<?php 
 			for($d_num=1;$d_num<=$dbd->d;$d_num++){
 		 ?>
-		<li><input type="radio" name="d" value="<? echo $d_num ?>"><a href="img/d/<? echo $d_num ?>.jpg" rel="lightbox"><img src="img/d/<? echo $d_num ?>.jpg"></a></li>
+		<li><input type="radio" name="d" value="<?=$d_num?>"><a href="img/d/<?=$d_num?>.jpg" rel="lightbox"><img src="img/d/<?=$d_num?>.jpg"></a></li>
 		<?php
 			}
 		?>
