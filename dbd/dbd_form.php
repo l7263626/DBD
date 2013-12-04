@@ -1,8 +1,8 @@
 <h2>今天菜單</h2>
 <p>按圖可以放大看</p>
 <ul class="dbd_list">
-	<li><a href="img/b/<?php echo $dbd->b_current ?>.jpg" rel="lightbox"><img src="img/b/<?php echo $dbd->b_current ?>.jpg"></a></li>
-	<li><a href="img/d/<?php echo $dbd->d_current ?>.jpg" rel="lightbox"><img src="img/d/<?php echo $dbd->d_current ?>.jpg"></a></li>	
+	<li><a href="img/b/<?=$dbd->b_current ?>.jpg" rel="lightbox"><img src="img/b/<?=$dbd->b_current ?>.jpg"></a></li>
+	<li><a href="img/d/<?=$dbd->d_current ?>.jpg" rel="lightbox"><img src="img/d/<?=$dbd->d_current ?>.jpg"></a></li>	
 </ul>
 
 <div class="clear">&nbsp;</div>

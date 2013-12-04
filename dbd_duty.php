@@ -22,7 +22,7 @@
 	
 	<div class="toggle_block">
 		
-		<h2>值日生排表 : <?php echo date("n"); ?>月</h2>
+		<h2>值日生排表 : <?=date("n")?>月</h2>
 		<table>
 			<tr>
 				<th>日</th>
@@ -33,7 +33,7 @@
 				<th>五</th>
 				<th>六</th>
 			</tr>
-			<?php echo $duty->month_table; ?>
+			<?=$duty->month_table?>
 		</table>
 		<hr>
 	</div>
@@ -51,10 +51,10 @@
 							$key++;
 				?>
 				<p class="dl_row">
-					<input type="hidden" name="dl_id[<?php echo $key; ?>]" value="<?php echo $row["dl_id"]; ?>" style="width: 100px;">
-					名稱 : <input type="text" name="dl_name[<?php echo $key; ?>]" value="<?php echo $row["dl_name"]; ?>" style="width: 100px;">
+					<input type="hidden" name="dl_id[<?=$key?>]" value="<?=$row["dl_id"]?>" style="width: 100px;">
+					名稱 : <input type="text" name="dl_name[<?=$key?>]" value="<?=$row["dl_name"]?>" style="width: 100px;">
 					<span class="break"> | </span>
-					E-mail : <input type="text" name="dl_mail[<?php echo $key; ?>]" value="<?php echo $row["dl_mail"]; ?>" style="width: 300px;">
+					E-mail : <input type="text" name="dl_mail[<?=$key?>]" value="<?=$row["dl_mail"]?>" style="width: 300px;">
 				</p>
 				<?php
 						}
@@ -78,7 +78,7 @@
 			<h2>值日生排程設定</h2>
 			<form name="duty_form" action="" method="post">
 				<div class="float">
-					這個月 : <?php echo $duty->this_month; ?> 月
+					這個月 : <?=$duty->this_month?> 月
 					<br /><br />
 					<table>
 						<tr>
@@ -91,18 +91,18 @@
 								$t_week = date("w",mktime(0,0,0,$duty->this_month,$t_d,$duty->this_year));
 						?>
 						<tr>
-							<td><?php echo $t_d; ?></td>
+							<td><?=$t_d?></td>
 							<td>
-								<select name="dl_id_1[<?php echo $t_date_format ?>]">
-									<option value="0"><?php echo ($t_week == 0 || $t_week == 6)?"假日":"未選擇" ?></option>
-									<?php $duty->dd_option($db,$t_date_format,1); ?>
+								<select name="dl_id_1[<?=$t_date_format?>]">
+									<option value="0"><?=($t_week == 0 || $t_week == 6)?"假日":"未選擇"?></option>
+									<?=$duty->dd_option($db,$t_date_format,1)?>
 								</select>
 								<br />
-								<select name="dl_id_2[<?php echo $t_date_format ?>]">
-									<option value="0"><?php echo ($t_week == 0 || $t_week == 6)?"假日":"未選擇" ?></option>
-									<?php $duty->dd_option($db,$t_date_format,2); ?>
+								<select name="dl_id_2[<?=$t_date_format?>]">
+									<option value="0"><?=($t_week == 0 || $t_week == 6)?"假日":"未選擇"?></option>
+									<?=$duty->dd_option($db,$t_date_format,2)?>
 								</select>
-								<input type="hidden" name="dd_date[]" value="<?php echo $t_date_format ?>">
+								<input type="hidden" name="dd_date[]" value="<?=$t_date_format?>">
 							</td>
 						</tr>
 						<?php
@@ -111,7 +111,7 @@
 					</table>
 				</div>
 				<div class="float">
-					下個月 : <?php echo $duty->next_month; ?> 月
+					下個月 : <?=$duty->next_month?> 月
 					<br /><br />
 					<table>
 						<tr>
@@ -124,18 +124,18 @@
 								$n_week = date("w",mktime(0,0,0,$duty->next_month,$n_d,$duty->next_year));
 						?>
 						<tr>
-							<td><?php echo $n_d; ?></td>
+							<td><?=$n_d?></td>
 							<td>
-								<select name="dl_id_1[<?php echo $n_date_format ?>]">
-									<option value="0"><?php echo ($n_week == 0 || $n_week == 6)?"假日":"未選擇" ?></option>
-									<?php $duty->dd_option($db,$n_date_format,1); ?>
+								<select name="dl_id_1[<?=$n_date_format?>]">
+									<option value="0"><?=($n_week == 0 || $n_week == 6)?"假日":"未選擇"?></option>
+									<?=$duty->dd_option($db,$n_date_format,1)?>
 								</select>
 								<br />
-								<select name="dl_id_2[<?php echo $n_date_format ?>]">
-									<option value="0"><?php echo ($n_week == 0 || $n_week == 6)?"假日":"未選擇" ?></option>
-									<?php $duty->dd_option($db,$n_date_format,2); ?>
+								<select name="dl_id_2[<?=$n_date_format?>]">
+									<option value="0"><?=($n_week == 0 || $n_week == 6)?"假日":"未選擇"?></option>
+									<?=$duty->dd_option($db,$n_date_format,2)?>
 								</select>
-								<input type="hidden" name="dd_date[]" value="<?php echo $n_date_format ?>">
+								<input type="hidden" name="dd_date[]" value="<?=$n_date_format?>">
 							</td>
 						</tr>
 						<?php
@@ -193,7 +193,7 @@
 		});
 		
 		//----
-		$(".toggle_block:eq(<?php echo $duty->toggle_block; ?>)").slideDown();
+		$(".toggle_block:eq(<?=$duty->toggle_block?>)").slideDown();
 		
 		$(".toggle").click(function(E){
 			E.preventDefault();
