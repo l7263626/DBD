@@ -36,6 +36,7 @@
 		 ?>
 		<li><input type="radio" name="d" value="<?=$d_num?>"><a href="img/d/<?=$d_num?>.jpg" rel="lightbox"><img src="img/d/<?=$d_num?>.jpg"></a></li>
 		<?php
+					break;
 				}
 			}
 		?>
